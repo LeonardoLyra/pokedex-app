@@ -31,7 +31,13 @@ const renderPokemon = async (pokemon) => {
         pokemonImage.style.display = 'block';
         pokemonName.innerHTML = data.name;
         pokemonNumber.innerHTML = data.id;
-        pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+
+        if(data.id < 650) {
+            pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+        } else {
+            pokemonImage.src = data['sprites']['front_default'];
+        }
+        
 
         input.value = '';
 
